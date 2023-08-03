@@ -3,9 +3,10 @@
 
 	<?php include "includes/css_header.php" ?>
 	
-    <body style="background-image:url('images/beagle1.jpg');
-	background-repeat: no-repeat;
-	background-size: 1550px 800px;">
+    <body style="background-image:url('images/rot.jpg');
+	background-repeat: no-repeat, no repeat;
+	background-size: 1550px 800px, 500px 500px;
+	baground-position: center, top;">
 
         
     <?php include "includes/header_prelogin.php" ?>
@@ -35,7 +36,8 @@
     					<label class="text-white">Email:</label>
     					<input type="email" class="form-control" placeholder="Enter your Email" name="user_email" required><br>
     					<label class="text-white">Password:</label>
-    					<input type="password" class="form-control" placeholder="Password" name="user_password" required><br>
+    					<input type="password" class="form-control" placeholder="Password" name="user_password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
+						
     					<input type="submit" class="btn btn-danger btn-lg btn-block" value="Register" name=""><br>
     				</form>
     				<p class="text-white"><i>Already a member? <a href="index.php">Login Here</a></i></p>

@@ -16,13 +16,13 @@
   
 
   <div class="container ">
-        <!--All products with 3/12 parts each-->
+        <!--All pets with 3/12 parts each-->
     <div class="row">
       <?php 
-        //$product_id=$_GET['product_id'];
+        //$pet_id=$_GET['pet_id'];
         $user_id=$_SESSION['user_id'];
 
-        $query="SELECT * FROM `cart` c JOIN `products` p ON c.`product_id`=p.`product_id` WHERE c.`user_id`=$user_id";
+        $query="SELECT * FROM `cart` c JOIN `pets` p ON c.`pet_id`=p.`pet_id` WHERE c.`user_id`=$user_id";
         $result=mysqli_query($connection,$query);
         $cnt = mysqli_num_rows($result);
         if ( 0===$cnt ) {
@@ -60,13 +60,13 @@
         while($row=mysqli_fetch_assoc($result))
         {
           echo '<div class="col-md-3">
-                  <div class="product-tab">
-                    <img src="images/'.$row['product_image'].'" class="img-size curve-edge">
-                    <h3 class="text-center"><b>'.$row['product_name'].'</b></h3>
-                    <p class="justify"><b><i> &nbsp&nbsp&nbsp&nbsp '.$row['product_description'].'</i></b></p>
-                    <a href="product_description.php?product_id='.$row['product_id'].'" class="btn btn-block btn-success" >View Details </a>
-                    <a href="add_to_order.php?product_id='.$row['product_id'].'" class="btn btn-block btn-success" >Order Now </a>
-                    <a href="delete_from_cart.php?product_id='.$row['product_id'].'" class="btn btn-block btn-danger" >Remove from Cart </a>
+                  <div class="pet-tab">
+                    <img src="images/'.$row['pet_photo1'].'" class="img-size curve-edge">
+                    <h3 class="text-center"><b>'.$row['pet_name'].'</b></h3>
+                    <p class="justify"><b><i> &nbsp&nbsp&nbsp&nbsp '.$row['pet_description'].'</i></b></p>
+                    <a href="pet_description.php?pet_id='.$row['pet_id'].'" class="btn btn-block btn-success" >View Details </a>
+                    <a href="add_to_order.php?pet_id='.$row['pet_id'].'" class="btn btn-block btn-success" >Order Now </a>
+                    <a href="delete_from_cart.php?pet_id='.$row['pet_id'].'" class="btn btn-block btn-danger" >Remove from Cart </a>
                     
                   </div>
                 </div>';

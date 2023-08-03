@@ -5,9 +5,10 @@
    		header('Location: register.php');
   	}
 	include "includes/dbconnect.php";
-	$product_id=$_POST['product_id'];
+	$pet_id=$_POST['pet_id'];
+	$pet_name=$_POST['pet_name'];
 
-	$query="DELETE FROM `paws`.`products` WHERE `product_name` LIKE '$product_name'";
+	$query="DELETE FROM `paws`.`pets` WHERE `pet_name` LIKE '$pet_name'";
 	if (mysqli_query($connection,$query))
 	{
 		header('Location: admin.php?msg=11');

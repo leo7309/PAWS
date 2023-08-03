@@ -23,24 +23,24 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="text-center font-80px"> The Orders </h1>
+				<h1 class="text-center font-80px">Orders </h1>
 			</div>
 		</div>
 		<div class="row">
 			<?php
-				$query="SELECT * FROM `orders` o JOIN `products` p ON o.`product_id`=p.`product_id` JOIN `users` u ON o.`user_id`=u.`user_id` JOIN `details` d ON o.`user_id`=d.`user_id`";
+				$query="SELECT * FROM `orders` o JOIN `pets` p ON o.`pet_id`=p.`pet_id` JOIN `users` u ON o.`user_id`=u.`user_id` JOIN `shipping_details` d ON o.`user_id`=d.`user_id`";
 				$result=mysqli_query($connection,$query);
 				while($row=mysqli_fetch_assoc($result))
 				{
 				echo'<div class="col-md-3">
-						<div class="product-tab">
-							<p><b> User Name: '.$row['fname'].'<br>
+						<div class="pet-tab">
+							<p><b>Order ID: '.$row['order_id'].'<br>
+							Pet ID: '.$row['pet_id'].'<br>
+							Pet Name: '.$row['pet_name'].'<br>
 							User ID: '.$row['user_id'].'<br>
-							Pet Name: '.$row['product_name'].'<br>
-							Pet ID: '.$row['product_id'].'<br>
-							Quantity: '.$row['quantity'].'<br>
+							User Name: '.$row['fname'].'<br> 
+							Phone Number: '.$row['phone_number'].'<br>
 							Address: '.$row['address'].'<br>
-							Order ID: '.$row['order_id'].'<br>
 							</b></p>
 							
 						</div>

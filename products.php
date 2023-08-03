@@ -19,7 +19,7 @@
         include "includes/header_postlogin.php";
         }
    ?>
-<body style="background-image: url('images/dogbg.jpg'); 
+<body style="background-image: url('images/orderbg.jpg'); 
 background-size: 1525px 800px;
 background-attachment: fixed;!important">
   
@@ -27,25 +27,25 @@ background-attachment: fixed;!important">
   <div class="container ">
     <h1 class="text-center font-80px margin-bottom50;"> <b>Welcome dogophiles! You've have come to the right place!</b></h1>
 
-    <!--All products with 3/12 parts each-->
+    <!--All pets with 3/12 parts each-->
     <div class="row">
       <?php 
-        $query="SELECT * FROM `products`";
+        $query="SELECT * FROM `pets`";
         $result=mysqli_query($connection,$query);
         while($row=mysqli_fetch_assoc($result))
         {
           echo '<div class="col-md-3">
-                  <div class="product-tab">
-                    <img src="images/'.$row['product_image'].'" class="img-size curve-edge">
-                    <h3 class="text-center"><b>'.$row['product_name'].'</b></h3>
-                    <p class="justify"><b><i> &nbsp&nbsp&nbsp&nbsp '.$row['product_description'].'</i></b></p>
-                    <a href="product_description.php?product_id='.$row['product_id'].'" class="btn btn-block btn-success"> View Details </a>
+                  <div class="pet-tab">
+                    <img src="images/'.$row['pet_photo1'].'" class="img-size curve-edge">
+                    <h3 class="text-center"><b>'.$row['pet_name'].'</b></h3>
+                    <p class="justify"><b><i> &nbsp&nbsp&nbsp&nbsp '.$row['pet_description'].'</i></b></p>
+                    <a href="pet_description.php?pet_id='.$row['pet_id'].'" class="btn btn-block btn-success"> View Details </a>
                   </div>
                 </div>';
         }
       ?>
              
-    </div> <!--Products dispaly Ends-->
+    </div> <!--pets dispaly Ends-->
 
     <div class="row">
       
@@ -56,7 +56,7 @@ background-attachment: fixed;!important">
           <div class="col-md-12 bio-tab">
             <div class="row">
               <div class="col-md-4">
-                <img src="images/logo.jpg" class="img-size img-circle">
+                <img src="images/white_logo-removebg-preview.png" class="img-size img-circle">
               </div>
 
               <div class="col-md-8">
@@ -65,11 +65,6 @@ background-attachment: fixed;!important">
               </div>
             </div>
           </div>
-
-          <div class="col-md-12">
-            <img src="images/logo.jpg" class="img-size-lg">
-          </div>
-
         </div>
       </div>
 
@@ -78,7 +73,7 @@ background-attachment: fixed;!important">
         <h2 class="text-center"><b>Chart Menu</b></h2>
         <div class="row">
         <?php 
-          $query1="SELECT * FROM `products`";
+          $query1="SELECT * FROM `pets`";
           $result1=mysqli_query($connection,$query);
           while($row1=mysqli_fetch_assoc($result1))
           {
@@ -86,14 +81,14 @@ background-attachment: fixed;!important">
                     <div class="row list hover-pink">
                       
                       <div class="col-md-6">
-                        <a href="product_description.php?product_id='.$row1['product_id'].'">
-                        <img src="images/'.$row1['product_image'].'" class="img-size-xs">
+                        <a href="pet_description.php?pet_id='.$row1['pet_id'].'">
+                        <img src="images/'.$row1['pet_photo1'].'" class="img-size-xs">
                         </a>
                       </div>
 
                       <div class="col-md-6">
-                        <b>'.$row1['product_name'].'</br><br>
-                        <small>₹'.$row1['product_price'].'</small>
+                        <b>'.$row1['pet_name'].'</br><br>
+                        <small>₹'.$row1['pet_price'].'</small>
                       </div>
 
                     </div>            

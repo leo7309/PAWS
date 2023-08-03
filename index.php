@@ -2,10 +2,14 @@
 <html>
 
 	<?php include "includes/css_header.php" ?>
+	<?php 
+	session_start();
+	if(isset($_SESSION['userid'])){header("Location: login_user.php"); exit;}
+	?>
 
-	<body style="background-image:url('images/beagle1.jpg');
-	background-repeat: no-repeat;
-	background-size: 1550px 800px;">
+	<body>
+		
+	 </body>
 
 		<?php include "includes/header_prelogin.php" ?>
 

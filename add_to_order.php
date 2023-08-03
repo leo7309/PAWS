@@ -6,21 +6,21 @@
   	}
 	include "includes/dbconnect.php";
 
-	$product_id=$_GET['product_id'];
+	$pet_id=$_GET['pet_id'];
 	$user_id=$_SESSION['user_id'];
 
-	$delete="DELETE FROM `cart` WHERE `cart`.`product_id` LIKE '$product_id' AND `cart`.`user_id` LIKE '$user_id'";
+	$delete="DELETE FROM `cart` WHERE `cart`.`pet_id` LIKE '$pet_id' AND `cart`.`user_id` LIKE '$user_id'";
 	mysqli_query($connection,$delete);
 
-	$query1="SELECT * FROM `orders` WHERE `product_id` LIKE '$product_id' AND `user_id` LIKE '$user_id'";
+	$query1="SELECT * FROM `orders` WHERE `pet_id` LIKE '$pet_id' AND `user_id` LIKE '$user_id'";
 	$result1=mysqli_query($connection,$query1);
 		
 	if(mysqli_num_rows($result1)==0)
 	{
-		$query="INSERT INTO `orders` (`order_id`, `user_id`, `product_id`) VALUES (NULL, '$user_id', '$product_id');";
+		$query="INSERT INTO `orders` (`order_id`, `user_id`, `pet_id`) VALUES (NULL, '$user_id', '$pet_id');";
 		if(mysqli_query($connection,$query))
 		{
-			header('Location: details_form.php?product_id='.$product_id.''); //redirect**
+			header('Location: details_form.php?pet_id='.$pet_id.''); //redirect**
 		}
 		else
 		{
@@ -29,7 +29,7 @@
 	}
 	elseif(mysqli_num_rows($result1)==1)
 	{
-		header('Location: show_cart_items.php?product_id='.$product_id.'&msg=22');
+		header('Location: show_cart_items.php?pet_id='.$pet_id.'&msg=22');
 	}
 	else
 	{

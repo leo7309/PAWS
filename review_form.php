@@ -5,10 +5,7 @@
    		header('Location: register.php');
   	}
 	include "includes/dbconnect.php";
-	$product_id=$_GET['product_id'];
 	$user_id=$_SESSION['user_id'];
-	
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,9 +20,7 @@
 			<div class="col-md-6">
 
 				<form class="text-center" action="add_to_review.php" method="POST">
-					<input type="hidden" name="product_id" value=" <?php echo $product_id; ?>">
-					<label><h3><b>Review Heading</b></h3></label>
-					<input type="text" name="review_heading" class="form-control" placeholder="Add the heading here..."><br>
+					<input type="hidden" name="pet_id" value=" <?php echo $pet_id; ?>">
 					<label><h3><b>Review</b></h3></label>
 					<input type="text" name="review_text" class="form-control" placeholder="Add the riview here..."><br>
 					<input type="submit" value="Submit Review" class="btn btn-danger btn-lg">

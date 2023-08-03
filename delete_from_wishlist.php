@@ -5,10 +5,10 @@
    		header('Location: register.php');
   	}
 	include "includes/dbconnect.php";
-	$product_id=$_GET['product_id'];
+	$pet_id=$_GET['pet_id'];
 	$user_id=$_SESSION['user_id'];
 
-	$query="DELETE FROM `paws`.`wishlist` WHERE `product_id` LIKE '$product_id' AND `user_id` LIKE '$user_id'";
+	$query="DELETE FROM `paws`.`wishlist` WHERE `pet_id` LIKE '$pet_id' AND `user_id` LIKE '$user_id'";
 	if(mysqli_query($connection,$query))
 	{
 		header('Location: show_wishlist_items.php?msg=1');

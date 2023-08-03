@@ -7,15 +7,15 @@
 	include "includes/dbconnect.php";
 	
 
-	$product_name=$_POST['product_name'];
-	$product_price=$_POST['product_price'];
-	$product_description=$_POST['product_description'];
+	$pet_name=$_POST['pet_name'];
+	$pet_price=$_POST['pet_price'];
+	$pet_description=$_POST['pet_description'];
 
 	$filename=$_FILES['image']['name'];
 	$temp_name=$_FILES['image']['tmp_name'];
 	if(move_uploaded_file($temp_name, "images/".$filename))
 	{
-		$query="INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_description`, `product_image`) VALUES (NULL, '$product_name', '$product_price', '$product_description', '$filename')";
+		$query="INSERT INTO `pets` (`pet_id`, `pet_name`, `pet_price`, `pet_description`, `pet_photo1`) VALUES (NULL, '$pet_name', '$pet_price', '$pet_description', '$filename')";
 		if(mysqli_query($connection,$query))
 		{
 			header('Location: admin.php?msg=1');
